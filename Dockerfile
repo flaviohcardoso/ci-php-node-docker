@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 ENV TZ=UTC
 
@@ -33,27 +33,27 @@ RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
 # PHP 8.1
 RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update
-RUN apt-get install -y php8.2
+RUN apt-get install -y php8.3
 RUN apt-get install -y \
-    php8.2-dev \
-    php8.2-bcmath \
-    php8.2-cli \
-    php8.2-common \
-    php8.2-curl \
-    php8.2-fpm \
-    php8.2-gd \
-    php8.2-imap \
-    php8.2-mbstring \
-    php8.2-mysql \
-    php8.2-pgsql \
-    php8.2-soap \
-    php8.2-intl \
-    php8.2-imagick \
-    php8.2-sqlite3 \
-    php8.2-xml \
-    php8.2-bz2 \
-    php8.2-zip \
-    php8.2-memcached
+    php8.3-dev \
+    php8.3-bcmath \
+    php8.3-cli \
+    php8.3-common \
+    php8.3-curl \
+    php8.3-fpm \
+    php8.3-gd \
+    php8.3-imap \
+    php8.3-mbstring \
+    php8.3-mysql \
+    php8.3-pgsql \
+    php8.3-soap \
+    php8.3-intl \
+    php8.3-imagick \
+    php8.3-sqlite3 \
+    php8.3-xml \
+    php8.3-bz2 \
+    php8.3-zip \
+    php8.3-memcached
 
 RUN command -v php
 
@@ -65,7 +65,7 @@ RUN mv composer.phar /usr/local/bin/composer && \
 RUN command -v composer
 
 # Node.js
-RUN curl -sL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
+RUN curl -sL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
 RUN apt-get install nodejs -y
 RUN npm install npm@10.9.0 -g
@@ -74,7 +74,7 @@ RUN command -v node
 RUN command -v npm
 
 # Other
-RUN mkdir ~/.ssh
+RUN mkdir -p ~/.ssh
 RUN touch ~/.ssh_config
 
 # Display versions installed
