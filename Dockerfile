@@ -31,7 +31,7 @@ RUN apt-get install -y \
 
 RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
-# PHP 8.1
+# PHP
 RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update
 RUN apt-get install -y php8.3
 RUN apt-get install -y \
